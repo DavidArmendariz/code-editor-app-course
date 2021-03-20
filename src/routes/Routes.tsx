@@ -5,6 +5,7 @@ import { Redirect, Route, Switch } from 'react-router';
 import ProtectedRoute from '../auth/ProtectedRoute';
 import Header from '../components/common/Header/Header';
 import Loading from '../components/common/Loading/Loading';
+import Home from '../pages/Home/Home';
 import routes from './routes';
 
 const Routes = () => {
@@ -23,7 +24,7 @@ const Routes = () => {
             {CodeEditor}
           </ProtectedRoute>
           <Route exact path={routes.home}>
-            {isAuthenticated ? <Redirect to={routes.codeEditor} /> : <div>Home</div>}
+            {isAuthenticated ? <Redirect to={routes.codeEditor} /> : <Home />}
           </Route>
         </Switch>
       </div>
