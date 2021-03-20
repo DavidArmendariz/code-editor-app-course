@@ -4,6 +4,8 @@ import React from 'react';
 import { toggleDarkMode } from '../../../store/dark-mode/reducer';
 import { useAppDispatch, useAppSelector } from '../../../store/hooks';
 import DarkModeIcon from '@material-ui/icons/Brightness2';
+import UnauthenticatedButtons from './UnauthenticatedButtons';
+import AuthenticatedButtons from './AuthenticatedButtons';
 
 const Header = () => {
   const { isAuthenticated } = useAuth0();
@@ -21,7 +23,7 @@ const Header = () => {
         </Typography>
         <DarkModeIcon />
         <Switch onChange={onChangeDarkMode} color="default" checked={darkMode} />
-        {isAuthenticated ? <div>Authenticated buttons</div> : <div>Unauthenticated buttons</div>}
+        {isAuthenticated ? <AuthenticatedButtons /> : <UnauthenticatedButtons />}
       </Toolbar>
     </AppBar>
   );
