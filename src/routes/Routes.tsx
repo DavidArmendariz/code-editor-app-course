@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core';
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router';
 import ProtectedRoute from '../auth/ProtectedRoute';
+import Header from '../components/common/Header/Header';
 import Loading from '../components/common/Loading/Loading';
 import routes from './routes';
 
@@ -14,7 +15,7 @@ const Routes = () => {
   }
   return (
     <div className={classes.main}>
-      <div>Header</div>
+      <Header />
       <div className={classes.page}>
         <Switch>
           <ProtectedRoute exact path={routes.codeEditor} component={<div>Code Editor</div>} />
