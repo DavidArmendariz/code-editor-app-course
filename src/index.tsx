@@ -6,13 +6,16 @@ import reportWebVitals from './reportWebVitals';
 import AuthProvider from './auth/AuthProvider';
 import { BrowserRouter as Router } from 'react-router-dom';
 import ReduxProvider from './store/ReduxProvider';
+import CustomThemeProvider from './theme/CustomThemeProvider';
 
 ReactDOM.render(
   <React.StrictMode>
     <ReduxProvider>
       <Router>
         <AuthProvider>
-          <App />
+          <CustomThemeProvider>
+            <App />
+          </CustomThemeProvider>
         </AuthProvider>
       </Router>
     </ReduxProvider>
