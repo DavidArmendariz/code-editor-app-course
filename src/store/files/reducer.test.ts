@@ -1,5 +1,12 @@
 import { PayloadAction } from '@reduxjs/toolkit';
-import filesReducer, { addActiveFile, initialState, removeActiveFile, setFiles, updateFileCode } from './reducer';
+import filesReducer, {
+  addActiveFile,
+  initialState,
+  removeActiveFile,
+  setEditorActiveFile,
+  setFiles,
+  updateFileCode,
+} from './reducer';
 
 describe('files reducer', () => {
   test('should return the initial state if no known action is provided', () => {
@@ -72,5 +79,33 @@ describe('files reducer', () => {
       ],
     };
     expect(filesReducer(modifiedInitialState, updateFileCode(payload))).toEqual(expectedState);
+  });
+  test('should not update the state when updateFileCode reducer does not find a file', () => {
+    const payload = {
+      fileId: '2',
+      newCode: 'print("Hello World")',
+    };
+    const modifiedInitialState = {
+      ...initialState,
+      userFiles: [
+        {
+          id: '1',
+          code: 'console.log("Hello world!")',
+          name: 'index.js',
+          relativePath: 'testt/index.js',
+          extension: 'js',
+        },
+      ],
+    };
+    const expectedState = modifiedInitialState;
+    expect(filesReducer(modifiedInitialState, updateFileCode(payload))).toEqual(expectedState);
+  });
+  test("should set the editor's active file when action is setEditorActiveFile", () => {
+    const fileId = '1';
+    const expectedState = {
+      ...initialState,
+      editorActiveFile: fileId,
+    };
+    expect(filesReducer(initialState, setEditorActiveFile(fileId))).toEqual(expectedState);
   });
 });
