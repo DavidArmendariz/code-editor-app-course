@@ -9,7 +9,8 @@ const OpenWorkspace = () => {
     directoryInputRef.current?.click();
   };
   const onFilesUploaded = () => {
-    console.log('Test');
+    const files = directoryInputRef.current?.files as FileList;
+    console.log(files);
   };
   return (
     <div>
