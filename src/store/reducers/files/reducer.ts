@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import UserFile from '../../types/UserFile';
+import UserFile from '../../../types/UserFile';
 
 export interface FilesState {
   userFiles: UserFile[];
