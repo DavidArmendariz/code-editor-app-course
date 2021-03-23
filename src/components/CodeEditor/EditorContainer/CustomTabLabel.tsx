@@ -3,6 +3,8 @@ import React, { MouseEvent } from 'react';
 import UserFile from '../../../types/UserFile';
 import ExtensionIcon from '../ExtensionIcon/ExtensionIcon';
 import CloseIcon from '@material-ui/icons/Close';
+import { useAppDispatch } from '../../../store/hooks';
+import closeFile from '../../../store/thunks/closeFile/closeFile';
 
 interface Props {
   activeFile: UserFile;
@@ -10,12 +12,14 @@ interface Props {
 
 const CustomTabLabel = (props: Props) => {
   const classes = useStyles();
+  const dispatch = useAppDispatch();
   const {
-    activeFile: { id, name: fileName, extension },
+    activeFile: { id: fileId, name: fileName, extension },
   } = props;
 
   const onClose = (event: MouseEvent) => {
     event.stopPropagation();
+    dispatch(closeFile(fileId));
   };
 
   return (
