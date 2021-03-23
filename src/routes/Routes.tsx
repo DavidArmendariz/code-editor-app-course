@@ -5,6 +5,7 @@ import { Redirect, Route, Switch } from 'react-router';
 import ProtectedRoute from '../auth/ProtectedRoute';
 import Header from '../components/common/Header/Header';
 import Loading from '../components/common/Loading/Loading';
+import CodeEditor from '../pages/CodeEditor/CodeEditor';
 import Home from '../pages/Home/Home';
 import routes from './routes';
 
@@ -14,7 +15,6 @@ const Routes = () => {
   if (isLoading) {
     return <Loading />;
   }
-  const CodeEditor = () => <div>Code Editor App</div>;
   return (
     <div className={classes.main}>
       <Header />
