@@ -1,28 +1,35 @@
 import { makeStyles } from '@material-ui/core';
 import { TreeItem, TreeView } from '@material-ui/lab';
 import React from 'react';
-import { useAppSelector } from '../../../store/hooks';
+import { useAppDispatch, useAppSelector } from '../../../store/hooks';
 import selectFileViewerData from '../../../store/selectors/selectFileViewerData/selectFileViewerData';
 import FileViewerStructure from '../../../types/FileViewerStructure';
 import ExtensionIcon from '../ExtensionIcon/ExtensionIcon';
 import FolderOpenIcon from '@material-ui/icons/FolderOpen';
 import FolderIcon from '@material-ui/icons/Folder';
+import openFile from '../../../store/thunks/openFile/openFile';
 
 const FileViewer = () => {
   const classes = useStyles();
   const fileViewerData = useAppSelector(selectFileViewerData);
+  const dispatch = useAppDispatch();
 
-  const renderTree = (nodes: FileViewerStructure) => {
-    const { id: nodeId, name: nodeName, extension } = nodes;
+  const onSelectNode = (node: FileViewerStructure) => {
+    dispatch(openFile(node));
+  };
+
+  const renderTree = (node: FileViewerStructure) => {
+    const { id: nodeId, name: nodeName, extension } = node;
     return (
       <TreeItem
         className={classes.treeItem}
         key={nodeId}
         nodeId={nodeId}
         label={nodeName}
+        onDoubleClick={() => onSelectNode(node)}
         endIcon={<ExtensionIcon extension={extension} />}
       >
-        {Array.isArray(nodes.children) ? nodes.children.map((node) => renderTree(node)) : null}
+        {Array.isArray(node.children) ? node.children.map((node) => renderTree(node)) : null}
       </TreeItem>
     );
   };
