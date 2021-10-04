@@ -1,9 +1,8 @@
 import { useAuth0 } from '@auth0/auth0-react';
-import { AppBar, makeStyles, Switch, Toolbar, Typography } from '@material-ui/core';
-import React from 'react';
-import { toggleDarkMode } from '../../../store/reducers/dark-mode/reducer';
-import { useAppDispatch, useAppSelector } from '../../../store/hooks';
-import DarkModeIcon from '@material-ui/icons/Brightness2';
+import { AppBar, Switch, Toolbar, Typography } from '@mui/material';
+import DarkModeIcon from '@mui/icons-material/Brightness2';
+import { toggleDarkMode } from 'store/reducers/dark-mode/reducer';
+import { useAppDispatch, useAppSelector } from 'store/hooks';
 import UnauthenticatedButtons from './UnauthenticatedButtons';
 import AuthenticatedButtons from './AuthenticatedButtons';
 
@@ -14,11 +13,11 @@ const Header = () => {
   const onChangeDarkMode = () => {
     dispatch(toggleDarkMode());
   };
-  const classes = useStyles();
+
   return (
     <AppBar position="relative">
       <Toolbar>
-        <Typography variant="h6" className={classes.title}>
+        <Typography variant="h6" sx={{ flex: 1 }}>
           Code Editor App
         </Typography>
         <DarkModeIcon />
@@ -28,11 +27,5 @@ const Header = () => {
     </AppBar>
   );
 };
-
-const useStyles = makeStyles(() => ({
-  title: {
-    flex: 1,
-  },
-}));
 
 export default Header;

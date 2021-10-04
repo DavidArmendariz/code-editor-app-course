@@ -1,3 +1,1 @@
-export default interface CustomFile extends File {
-  webkitRelativePath?: string;
-}
+export type CustomFile = Partial<File> & Blob & { webkitRelativePath?: string };

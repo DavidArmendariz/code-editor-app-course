@@ -5,7 +5,7 @@ import supportedExtensions from '../../../constants/supportedExtensions';
 import { useAppDispatch, useAppSelector } from '../../../store/hooks';
 import { updateFileCode } from '../../../store/reducers/files/reducer';
 import UserFile from '../../../types/UserFile';
-import Loading from '../../common/Loading/Loading';
+import Loading from '../../common/loading/Loading';
 
 interface Props {
   activeFile: UserFile;

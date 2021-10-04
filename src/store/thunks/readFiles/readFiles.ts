@@ -1,5 +1,5 @@
-import CustomFile from '../../../types/CustomFile';
-import UserFile from '../../../types/UserFile';
+import { CustomFile } from 'types/CustomFile';
+import UserFile from 'types/UserFile';
 import { v4 as uuidv4 } from 'uuid';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { setFiles } from '../../reducers/files/reducer';
@@ -9,7 +9,7 @@ const readSingleFile = (file: CustomFile): Promise<UserFile> => {
     const reader = new FileReader();
     reader.readAsText(file);
     reader.onload = function () {
-      const { name, webkitRelativePath = '' } = file;
+      const { name = '', webkitRelativePath = '' } = file;
       const id = uuidv4();
       const code = typeof reader.result === 'string' ? reader.result : '';
       const splittedName = name.split('.');

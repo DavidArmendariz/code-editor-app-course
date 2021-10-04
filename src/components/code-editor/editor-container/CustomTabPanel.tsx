@@ -1,6 +1,5 @@
-import { makeStyles } from '@material-ui/core';
-import React from 'react';
-import UserFile from '../../../types/UserFile';
+import { styled } from '@mui/system';
+import UserFile from 'types/UserFile';
 import CustomMonacoEditor from './CustomMonacoEditor';
 
 interface Props {
@@ -9,20 +8,15 @@ interface Props {
 }
 
 const CustomTabPanel = (props: Props) => {
-  const classes = useStyles();
   const { activeFile, editorActiveFile } = props;
   const { id: activeFileId } = activeFile;
   return (
-    <div className={classes.root} role="tabpanel" hidden={editorActiveFile !== activeFileId}>
+    <DivRoot role="tabpanel" hidden={editorActiveFile !== activeFileId}>
       <CustomMonacoEditor activeFile={activeFile} />
-    </div>
+    </DivRoot>
   );
 };
 
-const useStyles = makeStyles(() => ({
-  root: {
-    height: '100%',
-  },
-}));
+const DivRoot = styled('div')({ height: '100%' });
 
 export default CustomTabPanel;

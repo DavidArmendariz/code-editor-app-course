@@ -1,7 +1,7 @@
-import React, { PropsWithChildren } from 'react';
+import { PropsWithChildren } from 'react';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
-import Loading from '../components/common/Loading/Loading';
+import Loading from '../components/common/loading/Loading';
 import store, { persistor } from './store';
 
 const ReduxProvider = (props: PropsWithChildren<{}>) => {

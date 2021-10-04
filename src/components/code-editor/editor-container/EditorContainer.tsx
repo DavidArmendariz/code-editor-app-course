@@ -1,20 +1,20 @@
-import { AppBar, makeStyles, Tab, Tabs } from '@material-ui/core';
-import React, { ChangeEvent } from 'react';
-import { useAppDispatch, useAppSelector } from '../../../store/hooks';
-import { setEditorActiveFile } from '../../../store/reducers/files/reducer';
-import selectActiveFiles from '../../../store/selectors/selectActiveFIles/selectActiveFiles';
+import { ChangeEvent } from 'react';
+import { AppBar, Tab, Tabs } from '@mui/material';
+import { styled } from '@mui/system';
+import { useAppDispatch, useAppSelector } from 'store/hooks';
+import { setEditorActiveFile } from 'store/reducers/files/reducer';
+import selectActiveFiles from 'store/selectors/selectActiveFIles/selectActiveFiles';
 import CustomTabLabel from './CustomTabLabel';
 import CustomTabPanel from './CustomTabPanel';
 
 const EditorContainer = () => {
-  const classes = useStyles();
   const dispatch = useAppDispatch();
   const activeFiles = useAppSelector(selectActiveFiles);
   const editorActiveFile = useAppSelector((state) => state.files.editorActiveFile);
   const activeFilesIds = useAppSelector((state) => state.files.activeFiles);
 
   if (!activeFiles.length) {
-    return <div className={classes.emptyMessage}>Select a file</div>;
+    return <EmptyMessageDiv>Select a file</EmptyMessageDiv>;
   }
 
   const onTabClick = (event: ChangeEvent<{}>, tabPosition: number) => {
@@ -25,7 +25,7 @@ const EditorContainer = () => {
   };
 
   return (
-    <div className={classes.root}>
+    <DivRoot>
       <AppBar position="static" color="default">
         <Tabs
           textColor="primary"
@@ -43,23 +43,22 @@ const EditorContainer = () => {
       {activeFiles.map((activeFile) => {
         return <CustomTabPanel key={activeFile.id} activeFile={activeFile} editorActiveFile={editorActiveFile} />;
       })}
-    </div>
+    </DivRoot>
   );
 };
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flex: 1,
-    height: '100%',
-    overflow: 'hidden',
-  },
-  emptyMessage: {
-    display: 'flex',
-    height: '100%',
-    justifyContent: 'center',
-    alignItems: 'center',
-    color: theme.font,
-  },
+const DivRoot = styled('div')({
+  flex: 1,
+  height: '100%',
+  overflow: 'hidden',
+});
+
+const EmptyMessageDiv = styled('div')(({ theme }) => ({
+  display: 'flex',
+  height: '100%',
+  justifyContent: 'center',
+  alignItems: 'center',
+  color: theme.font,
 }));
 
 export default EditorContainer;

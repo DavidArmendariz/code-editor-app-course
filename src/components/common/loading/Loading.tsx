@@ -1,5 +1,4 @@
-import { LinearProgress } from '@material-ui/core';
-import React from 'react';
+import { LinearProgress } from '@mui/material';
 
 const Loading = () => {
   return <LinearProgress />;
