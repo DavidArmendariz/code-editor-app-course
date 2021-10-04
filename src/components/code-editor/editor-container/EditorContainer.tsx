@@ -2,8 +2,8 @@ import { ChangeEvent } from 'react';
 import { AppBar, Tab, Tabs } from '@mui/material';
 import { styled } from '@mui/system';
 import { useAppDispatch, useAppSelector } from 'store/hooks';
-import { setEditorActiveFile } from 'store/reducers/files/reducer';
-import selectActiveFiles from 'store/selectors/selectActiveFIles/selectActiveFiles';
+import { setEditorActiveFile } from 'store/reducers/files/files';
+import selectActiveFiles from 'store/selectors/select-active-files/selectActiveFiles';
 import CustomTabLabel from './CustomTabLabel';
 import CustomTabPanel from './CustomTabPanel';
 

@@ -3,10 +3,10 @@ import { TreeItem, TreeView } from '@mui/lab';
 import FolderOpenIcon from '@mui/icons-material/FolderOpen';
 import FolderIcon from '@mui/icons-material/Folder';
 import { useAppDispatch, useAppSelector } from 'store/hooks';
-import selectFileViewerData from 'store/selectors/selectFileViewerData/selectFileViewerData';
+import selectFileViewerData from 'store/selectors/select-file-viewer-data/selectFileViewerData';
 import FileViewerStructure from 'types/FileViewerStructure';
 import ExtensionIcon from '../extension-icon/ExtensionIcon';
-import openFile from 'store/thunks/openFile/openFile';
+import openFile from 'store/thunks/openFile';
 
 const FileViewer = () => {
   const fileViewerData = useAppSelector(selectFileViewerData);

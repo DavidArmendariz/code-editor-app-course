@@ -4,7 +4,7 @@ import UserFile from 'types/UserFile';
 import ExtensionIcon from '../extension-icon/ExtensionIcon';
 import CloseIcon from '@mui/icons-material/Close';
 import { useAppDispatch } from 'store/hooks';
-import closeFile from 'store/thunks/closeFile/closeFile';
+import closeFile from 'store/thunks/closeFile';
 
 interface Props {
   activeFile: UserFile;

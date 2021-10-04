@@ -6,7 +6,7 @@ import filesReducer, {
   setEditorActiveFile,
   setFiles,
   updateFileCode,
-} from './reducer';
+} from './files';
 
 describe('files reducer', () => {
   test('should return the initial state if no known action is provided', () => {

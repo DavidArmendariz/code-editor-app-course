@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import { Button } from '@mui/material';
 import { styled } from '@mui/system';
 import { useAppDispatch } from 'store/hooks';
-import readFiles from 'store/thunks/readFiles/readFiles';
+import readFiles from 'store/thunks/readFiles';
 
 const OpenWorkspace = () => {
   const directoryInputRef = useRef<HTMLInputElement>(null);

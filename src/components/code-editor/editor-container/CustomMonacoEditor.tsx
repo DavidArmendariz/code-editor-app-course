@@ -3,7 +3,7 @@ import { debounce } from 'lodash';
 import Editor from '@monaco-editor/react';
 import { supportedExtensions } from 'variables';
 import { useAppDispatch, useAppSelector } from 'store/hooks';
-import { updateFileCode } from 'store/reducers/files/reducer';
+import { updateFileCode } from 'store/reducers/files/files';
 import UserFile from 'types/UserFile';
 import Loading from '../../common/loading/Loading';
 

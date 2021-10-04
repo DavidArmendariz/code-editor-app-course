@@ -1,5 +1,5 @@
 import { PayloadAction } from '@reduxjs/toolkit';
-import darkModeReducer, { initialState, toggleDarkMode } from './reducer';
+import darkModeReducer, { initialState, toggleDarkMode } from './darkMode';
 
 describe('dark mode reducer', () => {
   test('should return the initial state if no known action is provided', () => {

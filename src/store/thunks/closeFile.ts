@@ -1,5 +1,5 @@
 import { Dispatch } from 'redux';
-import { removeActiveFile, setEditorActiveFile } from 'store/reducers/files/reducer';
+import { removeActiveFile, setEditorActiveFile } from 'store/reducers/files/files';
 import { RootState } from 'store';
 
 const getNewActiveFileId = (activeFilesIds: string[], activeFilesLength: number, fileId: string) => {
