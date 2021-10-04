@@ -1,4 +1,4 @@
-import { createTheme, ThemeProvider } from '@mui/system';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { PropsWithChildren } from 'react';
 import { useAppSelector } from 'store/hooks';
 import { appColors, darkModeColors, commonColors } from './colors';
