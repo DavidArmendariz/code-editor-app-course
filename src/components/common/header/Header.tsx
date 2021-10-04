@@ -5,6 +5,7 @@ import { toggleDarkMode } from 'store/reducers/dark-mode/darkMode';
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 import SignIn from './SignIn';
 import SignOut from './SignOut';
+import OpenWorkspace from './OpenWorkspace';
 
 const Header = () => {
   const { isAuthenticated } = useAuth0();
@@ -31,6 +32,7 @@ const Header = () => {
 const AuthenticatedButtons = () => {
   return (
     <div>
+      <OpenWorkspace />
       <SignOut />
     </div>
   );
