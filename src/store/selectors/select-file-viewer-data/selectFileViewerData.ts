@@ -13,6 +13,8 @@ const selectFileViewerData = (userFiles: UserFile[]): FileViewerStructure => {
     const paths = relativePath.split('/');
     let j = 0;
     let children;
+
+    // Handle subfolders
     while (paths[j] !== name) {
       const path = paths[j];
       if (j === 0) {
@@ -38,11 +40,18 @@ const selectFileViewerData = (userFiles: UserFile[]): FileViewerStructure => {
       }
       j++;
     }
+
     const fileData = { id, name, extension };
+
     if (!children) {
       result.children!.push(fileData);
-    } else {
+      continue;
+    }
+
+    try {
       (children as FileViewerStructure).children!.push(fileData);
+    } catch {
+      (children as FileViewerStructure[]).push(fileData);
     }
   }
 
