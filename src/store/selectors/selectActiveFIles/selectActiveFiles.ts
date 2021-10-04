@@ -1,6 +1,6 @@
 import { createSelector } from '@reduxjs/toolkit';
-import { FilesState } from '../../reducers/files/reducer';
-import { RootState } from '../../store';
+import { FilesState } from 'store/reducers/files/reducer';
+import { RootState } from 'store';
 
 const selectActiveFiles = (files: FilesState) => {
   const { userFiles, activeFiles } = files;

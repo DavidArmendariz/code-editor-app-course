@@ -1,7 +1,7 @@
-import Editor from '@monaco-editor/react';
+import { useCallback, useState } from 'react';
 import { debounce } from 'lodash';
-import React, { useCallback, useState } from 'react';
-import supportedExtensions from '../../../constants/supportedExtensions';
+import Editor from '@monaco-editor/react';
+import { supportedExtensions } from 'variables';
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { updateFileCode } from 'store/reducers/files/reducer';
 import UserFile from 'types/UserFile';

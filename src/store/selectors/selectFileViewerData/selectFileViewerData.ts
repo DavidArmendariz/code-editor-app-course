@@ -1,7 +1,7 @@
 import { createSelector } from '@reduxjs/toolkit';
-import FileViewerStructure from '../../../types/FileViewerStructure';
-import UserFile from '../../../types/UserFile';
-import { RootState } from '../../store';
+import FileViewerStructure from 'types/FileViewerStructure';
+import UserFile from 'types/UserFile';
+import { RootState } from 'store';
 
 const selectFileViewerData = (userFiles: UserFile[]): FileViewerStructure => {
   const userFilesLength = userFiles.length;

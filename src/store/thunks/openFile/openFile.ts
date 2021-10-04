@@ -1,8 +1,8 @@
 import { Dispatch } from 'redux';
-import supportedExtensions from '../../../constants/supportedExtensions';
-import FileViewerStructure from '../../../types/FileViewerStructure';
-import { addActiveFile, setEditorActiveFile } from '../../reducers/files/reducer';
-import { RootState } from '../../store';
+import { supportedExtensions } from 'variables';
+import FileViewerStructure from 'types/FileViewerStructure';
+import { addActiveFile, setEditorActiveFile } from 'store/reducers/files/reducer';
+import { RootState } from 'store';
 
 const openFile = (node: FileViewerStructure) => (dispatch: Dispatch, getState: () => RootState) => {
   const { extension: fileExtension = '', id: fileId, children } = node;

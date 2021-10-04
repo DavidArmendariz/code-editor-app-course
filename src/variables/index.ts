@@ -1,4 +1,4 @@
-const supportedExtensions: { [key: string]: string } = {
+export const supportedExtensions: { [key: string]: string } = {
   js: 'javascript',
   jsx: 'javascript',
   ts: 'typescript',
@@ -12,5 +12,3 @@ const supportedExtensions: { [key: string]: string } = {
   css: 'css',
   json: 'json',
 };
-
-export default supportedExtensions;

@@ -3,8 +3,8 @@ import { AppBar, Switch, Toolbar, Typography } from '@mui/material';
 import DarkModeIcon from '@mui/icons-material/Brightness2';
 import { toggleDarkMode } from 'store/reducers/dark-mode/reducer';
 import { useAppDispatch, useAppSelector } from 'store/hooks';
-import UnauthenticatedButtons from './UnauthenticatedButtons';
-import AuthenticatedButtons from './AuthenticatedButtons';
+import SignIn from './SignIn';
+import SignOut from './SignOut';
 
 const Header = () => {
   const { isAuthenticated } = useAuth0();
@@ -25,6 +25,22 @@ const Header = () => {
         {isAuthenticated ? <AuthenticatedButtons /> : <UnauthenticatedButtons />}
       </Toolbar>
     </AppBar>
+  );
+};
+
+const AuthenticatedButtons = () => {
+  return (
+    <div>
+      <SignIn />
+    </div>
+  );
+};
+
+const UnauthenticatedButtons = () => {
+  return (
+    <div>
+      <SignOut />
+    </div>
   );
 };
 

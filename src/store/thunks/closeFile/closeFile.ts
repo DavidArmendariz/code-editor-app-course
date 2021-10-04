@@ -1,6 +1,6 @@
 import { Dispatch } from 'redux';
-import { removeActiveFile, setEditorActiveFile } from '../../reducers/files/reducer';
-import { RootState } from '../../store';
+import { removeActiveFile, setEditorActiveFile } from 'store/reducers/files/reducer';
+import { RootState } from 'store';
 
 const getNewActiveFileId = (activeFilesIds: string[], activeFilesLength: number, fileId: string) => {
   const fileToBeRemovedIndex = activeFilesIds.indexOf(fileId);

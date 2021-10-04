@@ -1,4 +1,4 @@
-import { RootState } from '../../store';
+import { RootState } from 'store';
 import selectFileViewerData from './selectFileViewerData';
 
 test('should convert a list of user files to the file viewer structure', () => {
