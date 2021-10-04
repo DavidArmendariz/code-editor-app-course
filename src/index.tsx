@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import { BrowserRouter as Router } from 'react-router-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import AuthProvider from './auth/AuthProvider';
-import { BrowserRouter as Router } from 'react-router-dom';
 import ReduxProvider from './store/ReduxProvider';
 import CustomThemeProvider from './theme/CustomThemeProvider';
+import './index.css';
 
 ReactDOM.render(
   <React.StrictMode>
