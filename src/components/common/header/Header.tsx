@@ -31,7 +31,7 @@ const Header = () => {
 const AuthenticatedButtons = () => {
   return (
     <div>
-      <SignIn />
+      <SignOut />
     </div>
   );
 };
@@ -39,7 +39,7 @@ const AuthenticatedButtons = () => {
 const UnauthenticatedButtons = () => {
   return (
     <div>
-      <SignOut />
+      <SignIn />
     </div>
   );
 };
