@@ -1,6 +1,7 @@
 import { styled } from '@mui/system';
 import EditorContainer from 'components/code-editor/editor-container/EditorContainer';
 import FileViewer from 'components/code-editor/file-viewer/FileViewer';
+import Layout from 'components/common/layout/Layout';
 
 const RootDiv = styled('div')(({ theme }) => ({
   display: 'flex',
@@ -29,14 +30,16 @@ const CodeEditorContainerDiv = styled('div')({
 
 const CodeEditor = () => {
   return (
-    <RootDiv>
-      <FileViewerDiv>
-        <FileViewer />
-      </FileViewerDiv>
-      <CodeEditorContainerDiv>
-        <EditorContainer />
-      </CodeEditorContainerDiv>
-    </RootDiv>
+    <Layout>
+      <RootDiv>
+        <FileViewerDiv>
+          <FileViewer />
+        </FileViewerDiv>
+        <CodeEditorContainerDiv>
+          <EditorContainer />
+        </CodeEditorContainerDiv>
+      </RootDiv>
+    </Layout>
   );
 };
 

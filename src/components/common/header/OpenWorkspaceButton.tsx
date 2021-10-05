@@ -4,7 +4,7 @@ import { styled } from '@mui/system';
 import { useAppDispatch } from 'store/hooks';
 import readFiles from 'store/thunks/readFiles';
 
-const OpenWorkspace = () => {
+const OpenWorkspaceButton = () => {
   const directoryInputRef = useRef<HTMLInputElement>(null);
   const dispatch = useAppDispatch();
   const onClick = () => {
@@ -20,13 +20,13 @@ const OpenWorkspace = () => {
   };
   return (
     <div>
-      <OpenWorkspaceButton onClick={onClick}>Open Workspace</OpenWorkspaceButton>
+      <OpenWorkspaceStyledButton onClick={onClick}>Open Workspace</OpenWorkspaceStyledButton>
       <InputFile type="file" directory="" webkitdirectory="" ref={directoryInputRef} onChange={onFilesUploaded} />
     </div>
   );
 };
 
-const OpenWorkspaceButton = styled(Button)(({ theme }) => ({
+const OpenWorkspaceStyledButton = styled(Button)(({ theme }) => ({
   color: theme.commonColors.white,
 }));
 
@@ -39,4 +39,4 @@ declare module 'react' {
   }
 }
 
-export default OpenWorkspace;
+export default OpenWorkspaceButton;
