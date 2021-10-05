@@ -30,9 +30,7 @@ const Routes = () => {
       <Header />
       <Page>
         <Switch>
-          <ProtectedRoute exact path={routes.codeEditor}>
-            {CodeEditorPage}
-          </ProtectedRoute>
+          <ProtectedRoute exact path={routes.codeEditor} component={CodeEditorPage} />
           <Route exact path={routes.home}>
             {isAuthenticated ? <Redirect to={routes.codeEditor} /> : <Home />}
           </Route>
