@@ -1,6 +1,6 @@
 import { styled } from '@mui/system';
 import Layout from 'components/common/layout/Layout';
-import ProgrammingLanguagesList from 'components/home/ProgrammingLanguagesList';
+import ProgrammingLanguagesList from 'components/home/programming-languages-list/ProgrammingLanguagesList';
 
 const RootDiv = styled('div')(({ theme }) => ({
   display: 'flex',
