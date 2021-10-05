@@ -9,7 +9,7 @@ import SignOutButton from './SignOutButton';
 import CodeEditorStyledButton from './CodeEditorButton';
 import OpenWorkspaceButton from './OpenWorkspaceButton';
 import { useHistory } from 'react-router';
-import routes from 'routes/routes';
+import paths from 'routes/paths';
 import { Link } from 'react-router-dom';
 
 const StyledLink = styled(Link)(({ theme }) => ({
@@ -29,7 +29,7 @@ const Header = () => {
     <AppBar position="relative">
       <Toolbar>
         <Typography variant="h6" sx={{ flex: 1 }}>
-          <StyledLink to={routes.home}>Code Editor App</StyledLink>
+          <StyledLink to={paths.home}>Code Editor App</StyledLink>
         </Typography>
         <DarkModeIcon />
         <Switch onChange={onChangeDarkMode} color="default" checked={darkMode} />
@@ -46,7 +46,7 @@ const AuthenticatedButtons = () => {
 
   return (
     <AuthenticatedButtonsDiv>
-      {history.location.pathname === routes.home ? <CodeEditorStyledButton /> : <OpenWorkspaceButton />}
+      {history.location.pathname === paths.home ? <CodeEditorStyledButton /> : <OpenWorkspaceButton />}
       <SignOutButton />
     </AuthenticatedButtonsDiv>
   );
