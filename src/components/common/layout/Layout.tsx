@@ -2,7 +2,7 @@ import { PropsWithChildren } from 'react';
 import { styled } from '@mui/system';
 import Header from '../header/Header';
 
-const MainPage = styled('div')({
+const LayoutContainer = styled('div')({
   height: '100%',
   display: 'flex',
   flexDirection: 'column',
@@ -14,10 +14,10 @@ const Page = styled('div')({
 
 const Layout = (props: PropsWithChildren<{}>) => {
   return (
-    <MainPage>
+    <LayoutContainer>
       <Header />
       <Page>{props.children}</Page>
-    </MainPage>
+    </LayoutContainer>
   );
 };
 
