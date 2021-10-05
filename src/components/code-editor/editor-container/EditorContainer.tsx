@@ -25,7 +25,7 @@ const EditorContainer = () => {
   };
 
   return (
-    <DivRoot>
+    <RootDiv>
       <AppBar position="static" color="default">
         <Tabs
           textColor="primary"
@@ -43,11 +43,11 @@ const EditorContainer = () => {
       {activeFiles.map((activeFile) => {
         return <CustomTabPanel key={activeFile.id} activeFile={activeFile} editorActiveFile={editorActiveFile} />;
       })}
-    </DivRoot>
+    </RootDiv>
   );
 };
 
-const DivRoot = styled('div')({
+const RootDiv = styled('div')({
   flex: 1,
   height: '100%',
   overflow: 'hidden',

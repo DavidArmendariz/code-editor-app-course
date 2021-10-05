@@ -11,12 +11,12 @@ const CustomTabPanel = (props: Props) => {
   const { activeFile, editorActiveFile } = props;
   const { id: activeFileId } = activeFile;
   return (
-    <DivRoot role="tabpanel" hidden={editorActiveFile !== activeFileId}>
+    <RootDiv role="tabpanel" hidden={editorActiveFile !== activeFileId}>
       <CustomMonacoEditor activeFile={activeFile} />
-    </DivRoot>
+    </RootDiv>
   );
 };
 
-const DivRoot = styled('div')({ height: '100%' });
+const RootDiv = styled('div')({ height: '100%' });
 
 export default CustomTabPanel;

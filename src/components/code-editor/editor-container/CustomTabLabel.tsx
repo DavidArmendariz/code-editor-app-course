@@ -22,7 +22,7 @@ const CustomTabLabel = (props: Props) => {
   };
 
   return (
-    <DivRoot>
+    <RootDiv>
       <ExtensionIcon extension={extension} />
       <FileNameDiv>{fileName}</FileNameDiv>
       <CloseIcon
@@ -33,11 +33,11 @@ const CustomTabLabel = (props: Props) => {
         }}
         onClick={onClose}
       />
-    </DivRoot>
+    </RootDiv>
   );
 };
 
-const DivRoot = styled('div')({
+const RootDiv = styled('div')({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',

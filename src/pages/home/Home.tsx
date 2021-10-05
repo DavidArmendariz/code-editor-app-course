@@ -2,7 +2,7 @@ import { styled } from '@mui/system';
 import Layout from 'components/common/layout/Layout';
 import ProgrammingLanguagesList from 'components/home/ProgrammingLanguagesList';
 
-const DivRoot = styled('div')(({ theme }) => ({
+const RootDiv = styled('div')(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   height: '100%',
@@ -19,10 +19,10 @@ const WelcomeMessageDiv = styled('div')(({ theme }) => ({
 const Home = () => {
   return (
     <Layout>
-      <DivRoot>
+      <RootDiv>
         <WelcomeMessageDiv>Welcome to the Code Editor App</WelcomeMessageDiv>
         <ProgrammingLanguagesList />
-      </DivRoot>
+      </RootDiv>
     </Layout>
   );
 };
