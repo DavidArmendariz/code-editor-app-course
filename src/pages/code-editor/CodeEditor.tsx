@@ -3,7 +3,7 @@ import EditorContainer from 'components/code-editor/editor-container/EditorConta
 import FileViewer from 'components/code-editor/file-viewer/FileViewer';
 import Layout from 'components/common/layout/Layout';
 
-const RootDiv = styled('div')(({ theme }) => ({
+const CodeEditorContainer = styled('div')(({ theme }) => ({
   display: 'flex',
   height: '100%',
   width: '100%',
@@ -12,7 +12,7 @@ const RootDiv = styled('div')(({ theme }) => ({
   backgroundColor: theme.background,
 }));
 
-const FileViewerDiv = styled('div')({
+const FileViewerContainer = styled('div')({
   display: 'flex',
   flex: 1,
   height: '100%',
@@ -23,7 +23,7 @@ const FileViewerDiv = styled('div')({
   overflow: 'auto',
 });
 
-const CodeEditorContainerDiv = styled('div')({
+const CodeContainer = styled('div')({
   flex: 3,
   height: '100%',
 });
@@ -31,14 +31,14 @@ const CodeEditorContainerDiv = styled('div')({
 const CodeEditor = () => {
   return (
     <Layout>
-      <RootDiv>
-        <FileViewerDiv>
+      <CodeEditorContainer>
+        <FileViewerContainer>
           <FileViewer />
-        </FileViewerDiv>
-        <CodeEditorContainerDiv>
+        </FileViewerContainer>
+        <CodeContainer>
           <EditorContainer />
-        </CodeEditorContainerDiv>
-      </RootDiv>
+        </CodeContainer>
+      </CodeEditorContainer>
     </Layout>
   );
 };
