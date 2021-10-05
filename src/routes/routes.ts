@@ -1,6 +1,4 @@
-const routes = {
+export default {
   home: '/',
   codeEditor: '/code-editor',
 };
-
-export default routes;
