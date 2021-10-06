@@ -1,5 +1,5 @@
 import { createSelector } from '@reduxjs/toolkit';
-import { FilesState } from 'store/reducers/files/files';
+import { FilesState } from 'store/slices/files/files';
 import { RootState } from 'store';
 
 const selectActiveFiles = (files: FilesState) => {

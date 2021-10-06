@@ -2,7 +2,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 import { AppBar, Switch, Toolbar, Typography } from '@mui/material';
 import { styled } from '@mui/system';
 import DarkModeIcon from '@mui/icons-material/Brightness2';
-import { toggleDarkMode } from 'store/reducers/dark-mode/darkMode';
+import { toggleDarkMode } from 'store/slices/dark-mode/darkMode';
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 import SignInButton from './SignInButton';
 import SignOutButton from './SignOutButton';

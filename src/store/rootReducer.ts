@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import darkModeReducer from './reducers/dark-mode/darkMode';
-import filesReducer from './reducers/files/files';
+import darkModeReducer from './slices/dark-mode/darkMode';
+import filesReducer from './slices/files/files';
 
 const rootReducer = combineReducers({
   darkMode: darkModeReducer,
