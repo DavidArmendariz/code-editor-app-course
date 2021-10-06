@@ -2,7 +2,7 @@ import { Dispatch } from 'redux';
 import { supportedExtensions } from 'variables';
 import FileViewerStructure from 'types/FileViewerStructure';
 import { addActiveFile, setEditorActiveFile } from 'store/slices/files/files';
-import { RootState } from 'store';
+import { RootState } from 'types/Store';
 
 const openFile = (node: FileViewerStructure) => (dispatch: Dispatch, getState: () => RootState) => {
   const { extension: fileExtension = '', id: fileId, children } = node;
