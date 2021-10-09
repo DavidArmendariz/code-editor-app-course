@@ -1,16 +1,14 @@
 import { useAuth0 } from '@auth0/auth0-react';
-import { AppBar, Switch, Toolbar, Typography } from '@mui/material';
+import { useHistory } from 'react-router';
+import { Link } from 'react-router-dom';
+import { AppBar, Toolbar, Typography } from '@mui/material';
 import { styled } from '@mui/system';
-import DarkModeIcon from '@mui/icons-material/Brightness2';
-import { toggleDarkMode } from 'store/slices/dark-mode/darkMode';
-import { useAppDispatch, useAppSelector } from 'store/hooks';
 import SignInButton from './SignInButton';
 import SignOutButton from './SignOutButton';
 import CodeEditorStyledButton from './CodeEditorButton';
 import OpenWorkspaceButton from './OpenWorkspaceButton';
-import { useHistory } from 'react-router';
+import DarkModeSwitch from './DarkModeSwitch';
 import paths from 'routes/paths';
-import { Link } from 'react-router-dom';
 
 const StyledLink = styled(Link)(({ theme }) => ({
   textDecoration: 'none',
@@ -19,11 +17,6 @@ const StyledLink = styled(Link)(({ theme }) => ({
 
 const Header = () => {
   const { isAuthenticated } = useAuth0();
-  const dispatch = useAppDispatch();
-  const darkMode = useAppSelector((state) => state.darkMode);
-  const onChangeDarkMode = () => {
-    dispatch(toggleDarkMode());
-  };
 
   return (
     <AppBar position="relative">
@@ -31,8 +24,7 @@ const Header = () => {
         <Typography variant="h6" sx={{ flex: 1 }}>
           <StyledLink to={paths.home}>Code Editor App</StyledLink>
         </Typography>
-        <DarkModeIcon />
-        <Switch onChange={onChangeDarkMode} color="default" checked={darkMode} />
+        <DarkModeSwitch />
         {isAuthenticated ? <AuthenticatedButtons /> : <UnauthenticatedButtons />}
       </Toolbar>
     </AppBar>
