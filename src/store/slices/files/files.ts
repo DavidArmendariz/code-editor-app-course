@@ -29,13 +29,9 @@ const filesSlice = createSlice({
     },
     updateFileCode(state, action: PayloadAction<{ fileId: string; newCode: string }>) {
       const { fileId, newCode } = action.payload;
-
-      if (fileId === state.editorActiveFile?.id) {
-        state.editorActiveFile.code = newCode;
-      }
-
       const userFiles = state.userFiles;
       let userFile = userFiles.find((file) => file.id === fileId);
+
       if (userFile) {
         userFile.code = newCode;
       }
