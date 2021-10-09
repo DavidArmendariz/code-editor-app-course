@@ -24,7 +24,7 @@ describe('files reducer', () => {
     ];
     const expectedState = {
       ...initialState,
-      activeFiles: [],
+      activeFilesIds: [],
       userFiles,
     };
     expect(filesReducer(initialState, setFiles(userFiles))).toEqual(expectedState);
@@ -33,7 +33,7 @@ describe('files reducer', () => {
     const fileId = '1';
     const expectedState = {
       ...initialState,
-      activeFiles: [fileId],
+      activeFilesIds: [fileId],
     };
     expect(filesReducer(initialState, addActiveFile(fileId))).toEqual(expectedState);
   });
@@ -41,11 +41,11 @@ describe('files reducer', () => {
     const fileId = '1';
     const modifiedInitialState = {
       ...initialState,
-      activeFiles: [fileId],
+      activeFilesIds: [fileId],
     };
     const expectedState = {
       ...initialState,
-      activeFiles: [],
+      activeFilesIds: [],
     };
     expect(filesReducer(modifiedInitialState, removeActiveFile(fileId))).toEqual(expectedState);
   });
@@ -101,13 +101,7 @@ describe('files reducer', () => {
     expect(filesReducer(modifiedInitialState, updateFileCode(payload))).toEqual(expectedState);
   });
   test("should set the editor's active file when action is setEditorActiveFile", () => {
-    const editorActiveFile = {
-      id: '1',
-      code: 'console.log("Hello world!")',
-      name: 'index.js',
-      relativePath: 'testt/index.js',
-      extension: 'js',
-    };
+    const editorActiveFile = '1';
     const expectedState = {
       ...initialState,
       editorActiveFile,
