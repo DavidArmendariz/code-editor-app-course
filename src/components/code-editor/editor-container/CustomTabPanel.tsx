@@ -10,6 +10,7 @@ interface Props {
 const CustomTabPanel = (props: Props) => {
   const { activeFile, editorActiveFile } = props;
   const { id: activeFileId } = activeFile;
+
   return (
     <RootDiv role="tabpanel" hidden={editorActiveFile?.id !== activeFileId}>
       <CustomMonacoEditor activeFile={activeFile} />
