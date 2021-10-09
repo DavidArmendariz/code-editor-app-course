@@ -101,11 +101,17 @@ describe('files reducer', () => {
     expect(filesReducer(modifiedInitialState, updateFileCode(payload))).toEqual(expectedState);
   });
   test("should set the editor's active file when action is setEditorActiveFile", () => {
-    const fileId = '1';
+    const editorActiveFile = {
+      id: '1',
+      code: 'console.log("Hello world!")',
+      name: 'index.js',
+      relativePath: 'testt/index.js',
+      extension: 'js',
+    };
     const expectedState = {
       ...initialState,
-      editorActiveFile: fileId,
+      editorActiveFile,
     };
-    expect(filesReducer(initialState, setEditorActiveFile(fileId))).toEqual(expectedState);
+    expect(filesReducer(initialState, setEditorActiveFile(editorActiveFile))).toEqual(expectedState);
   });
 });

@@ -14,10 +14,12 @@ const closeFile = (fileId: string) => (dispatch: Dispatch, getState: () => RootS
   const state = getState();
   const { activeFiles, editorActiveFile } = state.files;
   const activeFilesLength = activeFiles.length;
+
   if (activeFilesLength >= 2) {
     const newActiveFileId = getNewActiveFileId(activeFiles, activeFilesLength, fileId);
-    if (editorActiveFile === fileId || editorActiveFile === newActiveFileId) {
-      dispatch(setEditorActiveFile(newActiveFileId));
+
+    if (editorActiveFile?.id === fileId || editorActiveFile?.id === newActiveFileId) {
+      dispatch(setEditorActiveFile(editorActiveFile));
     }
   } else {
     dispatch(setEditorActiveFile(null));

@@ -18,9 +18,9 @@ const EditorContainer = () => {
   }
 
   const onTabClick = (event: ChangeEvent<{}>, tabPosition: number) => {
-    const activeFileId = activeFilesIds[tabPosition];
-    if (activeFileId !== editorActiveFile) {
-      dispatch(setEditorActiveFile(activeFileId));
+    const activeFile = activeFiles[tabPosition];
+    if (activeFile.id !== editorActiveFile?.id) {
+      dispatch(setEditorActiveFile(activeFile));
     }
   };
 
@@ -32,7 +32,7 @@ const EditorContainer = () => {
           indicatorColor="primary"
           variant="scrollable"
           scrollButtons="auto"
-          value={editorActiveFile ? activeFilesIds.indexOf(editorActiveFile) : 0}
+          value={editorActiveFile ? activeFilesIds.indexOf(editorActiveFile.id) : 0}
           onChange={onTabClick}
         >
           {activeFiles.map((activeFile) => {

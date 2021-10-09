@@ -1,7 +1,7 @@
-import { CustomFile } from 'types/CustomFile';
-import UserFile from 'types/UserFile';
 import { v4 as uuidv4 } from 'uuid';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { CustomFile } from 'types/CustomFile';
+import UserFile from 'types/UserFile';
 import { setFiles } from 'store/slices/files/files';
 
 const readSingleFile = (file: CustomFile): Promise<UserFile> => {
