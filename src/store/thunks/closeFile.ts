@@ -14,7 +14,7 @@ const closeFile = (fileToCloseId: string) => (dispatch: AppDispatch, getState: (
   const { activeFilesIds, editorActiveFile, userFiles } = state.files;
   const activeFilesLength = activeFilesIds.length;
 
-  if (activeFilesLength <= 2) {
+  if (activeFilesLength >= 2) {
     const newActiveFileId = getNewActiveFileId(activeFilesIds, activeFilesLength, fileToCloseId);
 
     if (fileToCloseId === editorActiveFile) {
