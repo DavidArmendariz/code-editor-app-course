@@ -18,12 +18,12 @@ const EditorContainer = () => {
 
   const onTabClick = (event: ChangeEvent<{}>, tabPosition: number) => {
     const activeFile = activeFiles[tabPosition];
-    if (activeFile.id !== editorActiveFile?.id) {
-      dispatch(setEditorActiveFile(activeFile));
+    if (activeFile.id !== editorActiveFile) {
+      dispatch(setEditorActiveFile(activeFile.id));
     }
   };
 
-  const tabValue = editorActiveFile ? activeFiles.findIndex((activeFile) => activeFile.id === editorActiveFile.id) : 0;
+  const tabValue = editorActiveFile ? activeFiles.findIndex((activeFile) => activeFile.id === editorActiveFile) : 0;
 
   return (
     <RootDiv>

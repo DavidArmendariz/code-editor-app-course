@@ -4,7 +4,7 @@ import CustomMonacoEditor from './CustomMonacoEditor';
 
 interface Props {
   activeFile: UserFile;
-  editorActiveFile: UserFile | null;
+  editorActiveFile: string | null;
 }
 
 const CustomTabPanel = (props: Props) => {
@@ -12,7 +12,7 @@ const CustomTabPanel = (props: Props) => {
   const { id: activeFileId } = activeFile;
 
   return (
-    <RootDiv role="tabpanel" hidden={editorActiveFile?.id !== activeFileId}>
+    <RootDiv role="tabpanel" hidden={editorActiveFile !== activeFileId}>
       <CustomMonacoEditor activeFile={activeFile} />
     </RootDiv>
   );

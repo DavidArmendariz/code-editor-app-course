@@ -3,13 +3,13 @@ import UserFile from 'types/UserFile';
 
 export interface FilesState {
   userFiles: UserFile[];
-  activeFiles: string[];
-  editorActiveFile: UserFile | null;
+  activeFilesIds: string[];
+  editorActiveFile: string | null;
 }
 
 export const initialState: FilesState = {
   userFiles: [],
-  activeFiles: [],
+  activeFilesIds: [],
   editorActiveFile: null,
 };
 
@@ -19,13 +19,13 @@ const filesSlice = createSlice({
   reducers: {
     setFiles(state, action: PayloadAction<UserFile[]>) {
       state.userFiles = action.payload;
-      state.activeFiles = [];
+      state.activeFilesIds = [];
     },
     addActiveFile(state, action: PayloadAction<string>) {
-      state.activeFiles.push(action.payload);
+      state.activeFilesIds.push(action.payload);
     },
     removeActiveFile(state, action: PayloadAction<string>) {
-      state.activeFiles = state.activeFiles.filter((fileId) => fileId !== action.payload);
+      state.activeFilesIds = state.activeFilesIds.filter((fileId) => fileId !== action.payload);
     },
     updateFileCode(state, action: PayloadAction<{ fileId: string; newCode: string }>) {
       const { fileId, newCode } = action.payload;
@@ -36,7 +36,7 @@ const filesSlice = createSlice({
         userFile.code = newCode;
       }
     },
-    setEditorActiveFile(state, action: PayloadAction<UserFile | null>) {
+    setEditorActiveFile(state, action: PayloadAction<string | null>) {
       state.editorActiveFile = action.payload;
     },
   },

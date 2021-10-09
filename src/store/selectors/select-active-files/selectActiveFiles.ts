@@ -3,8 +3,8 @@ import { FilesState } from 'store/slices/files/files';
 import { RootState } from 'types/Store';
 
 const selectActiveFiles = (files: FilesState) => {
-  const { userFiles, activeFiles } = files;
-  return userFiles.filter((file) => activeFiles.includes(file.id));
+  const { userFiles, activeFilesIds } = files;
+  return userFiles.filter((file) => activeFilesIds.includes(file.id));
 };
 
 export default createSelector((state: RootState) => state.files, selectActiveFiles);
