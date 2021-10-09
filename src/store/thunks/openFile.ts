@@ -1,24 +1,23 @@
 import { Dispatch } from 'redux';
-import { supportedExtensions } from 'variables';
 import FileViewerStructure from 'types/FileViewerStructure';
 import { addActiveFile, setEditorActiveFile } from 'store/slices/files/files';
 import { RootState } from 'types/Store';
 
 const openFile = (node: FileViewerStructure) => (dispatch: Dispatch, getState: () => RootState) => {
-  const { extension: fileExtension = '', id: fileId, children } = node;
+  const { id: newFileId, children } = node;
 
-  if (children || !supportedExtensions[fileExtension]) {
+  if (children) {
     return;
   }
 
   const state = getState();
   const activeFiles = state.files.activeFiles;
 
-  if (!activeFiles.includes(fileId)) {
-    dispatch(addActiveFile(fileId));
+  if (!activeFiles.includes(newFileId)) {
+    dispatch(addActiveFile(newFileId));
   }
 
-  const activeFile = state.files.userFiles.find((userFile) => userFile.id === fileId);
+  const activeFile = state.files.userFiles.find((userFile) => userFile.id === newFileId);
 
   if (activeFile) {
     dispatch(setEditorActiveFile(activeFile));

@@ -5,7 +5,7 @@ import { supportedExtensions } from 'variables';
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { updateFileCode } from 'store/slices/files/files';
 import UserFile from 'types/UserFile';
-import Loading from '../../common/loading/Loading';
+import Loading from 'components/common/loading/Loading';
 
 interface Props {
   activeFile: UserFile;
@@ -18,7 +18,7 @@ const CustomMonacoEditor = (props: Props) => {
   const [code, setCode] = useState(originalCode);
   const dispatch = useAppDispatch();
   const darkMode = useAppSelector((state) => state.darkMode);
-  const language = supportedExtensions[extension];
+  const language = supportedExtensions[extension] || 'txt';
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const debouncedSave = useCallback(

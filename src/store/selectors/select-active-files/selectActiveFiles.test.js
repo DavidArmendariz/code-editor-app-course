@@ -1,4 +1,3 @@
-import { RootState } from 'store';
 import selectActiveFiles from './selectActiveFiles';
 
 test('should return only the active files', () => {
@@ -31,7 +30,7 @@ test('should return only the active files', () => {
       userFiles,
       activeFiles,
     },
-  } as RootState;
+  };
   const expectedResult = [
     {
       id: '1',

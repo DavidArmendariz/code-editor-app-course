@@ -11,7 +11,6 @@ const EditorContainer = () => {
   const dispatch = useAppDispatch();
   const activeFiles = useAppSelector(selectActiveFiles);
   const editorActiveFile = useAppSelector((state) => state.files.editorActiveFile);
-  const activeFilesIds = useAppSelector((state) => state.files.activeFiles);
 
   if (!activeFiles.length) {
     return <EmptyMessageDiv>Select a file</EmptyMessageDiv>;
@@ -24,6 +23,8 @@ const EditorContainer = () => {
     }
   };
 
+  const tabValue = editorActiveFile ? activeFiles.findIndex((activeFile) => activeFile.id === editorActiveFile.id) : 0;
+
   return (
     <RootDiv>
       <AppBar position="static" color="default">
@@ -32,7 +33,7 @@ const EditorContainer = () => {
           indicatorColor="primary"
           variant="scrollable"
           scrollButtons="auto"
-          value={editorActiveFile ? activeFilesIds.indexOf(editorActiveFile.id) : 0}
+          value={tabValue}
           onChange={onTabClick}
         >
           {activeFiles.map((activeFile) => {
