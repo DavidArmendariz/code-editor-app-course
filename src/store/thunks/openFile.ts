@@ -17,11 +17,7 @@ const openFile = (node: FileViewerStructure) => (dispatch: Dispatch, getState: (
     dispatch(addActiveFile(newFileId));
   }
 
-  const activeFile = state.files.userFiles.find((userFile) => userFile.id === newFileId);
-
-  if (activeFile) {
-    dispatch(setEditorActiveFile(activeFile.id));
-  }
+  dispatch(setEditorActiveFile(newFileId));
 };
 
 export default openFile;
