@@ -11,20 +11,13 @@ const getNewActiveFileId = (activeFilesIds: string[], activeFilesLength: number,
 
 const closeFile = (fileToCloseId: string) => (dispatch: AppDispatch, getState: () => RootState) => {
   const state = getState();
-  const { activeFilesIds, editorActiveFile, userFiles } = state.files;
+  const { activeFilesIds, editorActiveFile } = state.files;
   const activeFilesLength = activeFilesIds.length;
 
-  if (activeFilesLength >= 2) {
+  if (activeFilesLength >= 2 && fileToCloseId === editorActiveFile) {
     const newActiveFileId = getNewActiveFileId(activeFilesIds, activeFilesLength, fileToCloseId);
-
-    if (fileToCloseId === editorActiveFile) {
-      const newEditorActiveFile = userFiles.find((userFile) => userFile.id === newActiveFileId);
-
-      if (newEditorActiveFile) {
-        dispatch(setEditorActiveFile(newEditorActiveFile.id));
-      }
-    }
-  } else {
+    dispatch(setEditorActiveFile(newActiveFileId));
+  } else if (activeFilesLength <= 1) {
     dispatch(setEditorActiveFile(null));
   }
 
