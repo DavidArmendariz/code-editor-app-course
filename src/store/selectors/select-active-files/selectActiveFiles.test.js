@@ -24,7 +24,7 @@ test('should return only the active files', () => {
       extension: 'js',
     },
   ];
-  const activeFilesIds = ['1', '3'];
+  const activeFilesIds = ['3', '1'];
   const state = {
     files: {
       userFiles,
@@ -33,16 +33,16 @@ test('should return only the active files', () => {
   };
   const expectedResult = [
     {
-      id: '1',
-      name: 'index1.js',
-      relativePath: 'test/index1.js',
+      id: '3',
+      name: 'index3.js',
+      relativePath: 'test/index3.js',
       code: 'console.log("Hello world!")',
       extension: 'js',
     },
     {
-      id: '3',
-      name: 'index3.js',
-      relativePath: 'test/index3.js',
+      id: '1',
+      name: 'index1.js',
+      relativePath: 'test/index1.js',
       code: 'console.log("Hello world!")',
       extension: 'js',
     },
