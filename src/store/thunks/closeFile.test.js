@@ -10,7 +10,7 @@ describe('closeFile', () => {
   });
 
   it('should close the only active file', () => {
-    getState.mockReturnValue({ files: { activeFiles: [{ id: '1' }], editorActiveFile: null } });
+    getState.mockReturnValue({ files: { activeFilesIds: ['1'], editorActiveFile: null } });
     closeFile('1')(dispatch, getState);
     expect(dispatch).toBeCalledTimes(2);
     expect(dispatch.mock.calls[0]).toEqual([{ type: 'files/setEditorActiveFile', payload: null }]);

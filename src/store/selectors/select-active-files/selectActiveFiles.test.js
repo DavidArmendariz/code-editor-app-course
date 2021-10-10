@@ -24,11 +24,11 @@ test('should return only the active files', () => {
       extension: 'js',
     },
   ];
-  const activeFiles = ['1', '3'];
+  const activeFilesIds = ['1', '3'];
   const state = {
     files: {
       userFiles,
-      activeFiles,
+      activeFilesIds,
     },
   };
   const expectedResult = [
