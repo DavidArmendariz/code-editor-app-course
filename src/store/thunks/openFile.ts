@@ -1,9 +1,8 @@
-import { Dispatch } from 'redux';
 import FileViewerStructure from 'types/FileViewerStructure';
 import { addActiveFile, setEditorActiveFile } from 'store/slices/files/files';
-import { RootState } from 'types/Store';
+import { AppDispatch, RootState } from 'types/Store';
 
-const openFile = (node: FileViewerStructure) => (dispatch: Dispatch, getState: () => RootState) => {
+const openFile = (node: FileViewerStructure) => (dispatch: AppDispatch, getState: () => RootState) => {
   const { id: newFileId, children } = node;
 
   if (children) {
