@@ -9,8 +9,9 @@ const openFile = (node: FileViewerStructure) => (dispatch: AppDispatch, getState
     return;
   }
 
-  const state = getState();
-  const activeFilesIds = state.files.activeFilesIds;
+  const {
+    files: { activeFilesIds },
+  } = getState();
 
   if (!activeFilesIds.includes(newFileId)) {
     dispatch(addActiveFile(newFileId));
