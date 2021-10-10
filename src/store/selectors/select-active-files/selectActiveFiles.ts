@@ -3,26 +3,17 @@ import { FilesState } from 'store/slices/files/files';
 import { RootState } from 'types/Store';
 import UserFile from 'types/UserFile';
 
-type ActiveFilesIdsMap = { [key: string]: string };
-type ActiveFilesMap = { [key: string]: UserFile };
+type UserFilesMap = { [key: string]: UserFile };
 
 const selectActiveFiles = (files: FilesState) => {
   const { userFiles, activeFilesIds } = files;
 
-  const activeFilesIdsMap = activeFilesIds.reduce((result, activeFile) => {
-    result[activeFile] = activeFile;
+  const userFilesMap = userFiles.reduce((result, activeFile) => {
+    result[activeFile.id] = activeFile;
     return result;
-  }, {} as ActiveFilesIdsMap);
+  }, {} as UserFilesMap);
 
-  const activeFiles = userFiles
-    .filter((file) => activeFilesIdsMap[file.id])
-    .reduce((result, activeFile) => {
-      const { id } = activeFile;
-      result[id] = activeFile;
-      return result;
-    }, {} as ActiveFilesMap);
-
-  return activeFilesIds.map((activeFileId) => activeFiles[activeFileId]);
+  return activeFilesIds.map((activeFileId) => userFilesMap[activeFileId]);
 };
 
 export default createSelector((state: RootState) => state.files, selectActiveFiles);
