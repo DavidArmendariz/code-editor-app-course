@@ -9,7 +9,7 @@ import ExtensionIcon from '../extension-icon/ExtensionIcon';
 import openFile from 'store/thunks/openFile';
 
 const FileViewer = () => {
-  const fileViewerData = useAppSelector(selectFileViewerData);
+  const fileViewerData = useAppSelector(selectFileViewerData) as FileViewerStructure;
   const dispatch = useAppDispatch();
 
   const onSelectNode = (node: FileViewerStructure) => {
