@@ -34,10 +34,12 @@ describe('readFiles', () => {
     await readFiles([1, 2])(dispatch, getState);
     expect(dispatch).toHaveBeenCalledTimes(3);
     expect(dispatch.mock.calls[0][0].type).toEqual('files/readFiles/pending');
-    expect(dispatch.mock.calls[1][0]).toEqual({
-      type: 'files/setFiles',
-      payload: userFiles,
-    });
+    expect(dispatch.mock.calls[1]).toEqual([
+      {
+        type: 'files/setFiles',
+        payload: userFiles,
+      },
+    ]);
     expect(dispatch.mock.calls[2][0].type).toEqual('files/readFiles/fulfilled');
   });
 });
