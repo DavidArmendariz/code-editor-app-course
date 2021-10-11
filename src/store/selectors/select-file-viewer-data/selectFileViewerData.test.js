@@ -68,6 +68,5 @@ test('should convert a list of user files to the file viewer structure', () => {
       },
     ],
   };
-  console.log(JSON.stringify(selectFileViewerData(state), null, 2));
   expect(selectFileViewerData(state)).toEqual(expectedResult);
 });
