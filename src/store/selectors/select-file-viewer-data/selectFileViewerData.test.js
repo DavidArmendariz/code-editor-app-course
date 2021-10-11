@@ -1,4 +1,3 @@
-import { RootState } from 'types/Store';
 import selectFileViewerData from './selectFileViewerData';
 
 test('should convert a list of user files to the file viewer structure', () => {
@@ -24,12 +23,19 @@ test('should convert a list of user files to the file viewer structure', () => {
       code: 'console.log("Hello world!")',
       extension: 'js',
     },
+    {
+      id: '4',
+      name: 'index4.js',
+      relativePath: 'test/subfolder/another-subfolder/index4.js',
+      code: 'console.log("Hello world!")',
+      extension: 'js',
+    },
   ];
   const state = {
     files: {
       userFiles,
     },
-  } as RootState;
+  };
   const expectedResult = {
     id: expect.any(String),
     name: 'test',
@@ -48,6 +54,11 @@ test('should convert a list of user files to the file viewer structure', () => {
             name: 'index2.js',
             extension: 'js',
           },
+          {
+            id: expect.any(String),
+            name: 'another-subfolder',
+            children: [{ id: '4', name: 'index4.js', extension: 'js' }],
+          },
         ],
       },
       {
@@ -57,5 +68,6 @@ test('should convert a list of user files to the file viewer structure', () => {
       },
     ],
   };
+  console.log(JSON.stringify(selectFileViewerData(state), null, 2));
   expect(selectFileViewerData(state)).toEqual(expectedResult);
 });
